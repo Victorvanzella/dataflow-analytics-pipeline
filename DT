@@ -1,0 +1,185 @@
+End-to-end data engineering pipeline designed to ingest, process, validate and analyze e-commerce sales data.
+
+🚀 Overview
+
+This project simulates a real-world data engineering environment where sales, customer and product data are collected from different sources, processed through an automated ETL pipeline and stored in analytical layers for reporting and decision-making.
+
+The pipeline implements data ingestion, transformation, data quality validation, orchestration and analytical storage using modern data engineering tools.
+
+🏗️ Architecture
+Data Source / API
+       │
+       ▼
+    Python
+       │
+       ▼
+     AWS S3
+   Bronze Layer
+       │
+       ▼
+    Airflow
+  Orchestration
+       │
+       ▼
+Python / Pandas
+Transformation
+       │
+       ▼
+     AWS S3
+   Silver Layer
+       │
+       ▼
+ PostgreSQL / Athena
+   Data Warehouse
+       │
+       ▼
+    Power BI
+   Analytics
+🛠️ Technologies
+Python
+SQL
+Pandas
+PostgreSQL
+Apache Airflow
+Docker
+AWS S3
+AWS Glue
+AWS Athena
+Git/GitHub
+Power BI
+🔄 Data Pipeline
+
+The pipeline follows an ETL/ELT architecture:
+
+Extract — ingestion of raw sales data from external sources.
+Load — storage of raw data in the Bronze layer.
+Transform — cleaning, normalization and transformation using Python and Pandas.
+Data Quality — validation of null values, duplicates, data types and business rules.
+Load — processed data is stored in analytical structures.
+Analytics — SQL queries and Power BI dashboards are used for analysis.
+🗂️ Data Architecture
+
+The project uses a layered architecture:
+
+Bronze
+
+Raw data stored without business transformations.
+
+Silver
+
+Cleaned and standardized datasets.
+
+Gold
+
+Business-ready analytical tables following dimensional modeling principles.
+
+dim_customer
+dim_product
+dim_date
+fact_sales
+⚙️ Orchestration
+
+Apache Airflow is responsible for scheduling and orchestrating the pipeline.
+
+Example DAG:
+
+Extract
+   ↓
+Validate Raw Data
+   ↓
+Transform
+   ↓
+Load
+   ↓
+Data Quality
+   ↓
+Analytics
+
+The pipeline includes task dependencies, retries and execution logs.
+
+🧪 Data Quality
+
+The pipeline validates:
+
+Required fields
+Duplicate records
+Invalid dates
+Negative prices
+Invalid quantities
+Referential integrity
+Data types
+
+Invalid datasets are prevented from being loaded into the analytical layer.
+
+🐳 Running Locally
+
+Clone the repository:
+
+git clone https://github.com/your-user/dataflow-analytics-pipeline.git
+
+cd dataflow-analytics-pipeline
+
+Start the development environment:
+
+docker compose up -d
+
+The project can then be executed through the Airflow environment.
+
+📁 Project Structure
+dataflow-analytics-pipeline/
+│
+├── airflow/
+│   └── dags/
+│
+├── src/
+│   ├── ingestion/
+│   ├── transformation/
+│   └── quality/
+│
+├── sql/
+│   ├── staging/
+│   ├── warehouse/
+│   └── analytics/
+│
+├── tests/
+│
+├── dashboard/
+│
+├── infrastructure/
+│
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+📊 Business Questions
+
+The analytical layer is designed to answer questions such as:
+
+What is the monthly revenue?
+Which products generate the highest revenue?
+Which regions have the highest sales volume?
+What is the average order value?
+Which customer segments generate the most revenue?
+How are sales evolving over time?
+🎯 Project Goals
+
+This project demonstrates practical knowledge of:
+
+Data ingestion
+ETL/ELT pipelines
+Data transformation
+Data quality
+SQL
+Dimensional modeling
+Data Warehousing
+Data Lake architecture
+Pipeline orchestration
+Cloud data services
+Containerization
+Business intelligence
+
+👨‍💻 Author
+
+Victor Vanzella Ribeiro
+
+Data Engineering | Python | SQL | AWS
